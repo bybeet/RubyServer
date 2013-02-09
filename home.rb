@@ -7,5 +7,5 @@ get "/" do
 end
 
 get "/test" do
-	redirect ":8080"
+	redirect "http://goldenmc.dyndns.info:80"
 end

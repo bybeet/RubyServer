@@ -3,9 +3,21 @@ require 'sinatra'
 set :port, 8088
 
 get "/" do
-	"HOME"
+	erb :home
 end
 
-get "/test" do
-	redirect "http://goldenmc.dyndns.info:80"
+get "/about" do
+	erb :about
+end
+
+get "/contact" do
+	erb :contact
+end
+
+get "/photography" do
+	erb :photography
+end
+
+get "/codingprojects" do
+	erb :codingprojects
 end

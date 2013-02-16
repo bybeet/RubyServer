@@ -1,4 +1,8 @@
 require 'sinatra'
+require 'data_mapper'
+require_relative 'project'
+
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/public/projects.db")
 
 set :port, 8088
 
@@ -19,5 +23,15 @@ get "/photography" do
 end
 
 get "/codingprojects" do
+	@projects = Project.all
 	erb :codingprojects
+end
+
+get "/project*" do
+	@projects = Project.first(:name_id => request.path_info.split('_')[1])
+	erb :project
+end
+
+get "/404" do
+	"404 Error -- File not found"
 end

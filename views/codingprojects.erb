@@ -11,22 +11,13 @@
       </div>
 
       <!-- Example row of columns -->
+      <% @projects.each do |project| %>
       <div class="row">
         <div class="span4">
-          <h2>todo.txt with NFC</h2>
-          <p>CSCI498 Mobile Development with Android Final Project.</p>
-          <p><a class="btn" href="https://github.com/bybeet/TodoTxtNFC">View details &raquo;</a></p>
+          <h2><%= project.title %></h2>
+          <p><%=  project.description %></p>
+          <p><a class="btn" href="/project_<%= project.name_id%>">View details &raquo;</a></p>
         </div>
-        <div class="span4">
-          <h2>Calendar Shopping</h2>
-          <p>CSCI422 User Interface Design Final Project</p>
-          <p><a class="btn" href="https://github.com/bybeet/WestSideShoppers">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Travis Bybee Website</h2>
-          <p>Website creating using Ruby with <a href="http://www.sinatrarb.com/" title="Sinatra Ruby DSL">Sinatra DSL</a>.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
-
+      <%end%>
+      
 </div> <!-- /container -->

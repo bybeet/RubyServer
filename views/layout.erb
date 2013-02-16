@@ -1,4 +1,4 @@
-
+<% @projects = Project.all(:order => [:title]) %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -38,8 +38,9 @@
 		              <li class="divider"></li>
 		              <li><a href="/codingprojects#github" title="Github Account">Github</a></li>
 		              <li class="divider"></li>
-		              <li><a href="#">Separated link</a></li>
-		              <li><a href="#">One more separated link</a></li>
+		              <% @projects.each do |project| %>
+		              <li><a href="/project_<%= project.name_id %>"><%= project.title %></a></li>
+		              <% end %>
 		            </ul>
 		          </li>
 		          <li><a href="/contact">Contact</a></li>

@@ -11,13 +11,19 @@
       </div>
 
       <!-- Example row of columns -->
-      <% @projects.each do |project| %>
       <div class="row">
-        <div class="span4">
+      <% @projects.each do |project| %>
+        <% if @i > 12 then %>
+        <% @i = 0 %>
+        </div><!-- /row -->
+        <div class="row">
+        <% end %>
+        <div class="span<%= @span %>">
           <h2><%= project.title %></h2>
           <p><%=  project.description %></p>
           <p><a class="btn" href="/project_<%= project.name_id%>">View details &raquo;</a></p>
-        </div>
-      <%end%>
+        </div><!-- /span4 -->
+      <% @i += @span; end%>
+      </div><!-- /row -->
       
 </div> <!-- /container -->

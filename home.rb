@@ -23,6 +23,11 @@ get "/photography" do
 end
 
 get "/codingprojects" do
+	#Span indicates the size of the columns in the row.
+	# => Each row can hold sum(columns) = 12
+	@span = 4
+	#Counter to start new row when row is maxed out.
+	@i = 0
 	@projects = Project.all
 	erb :codingprojects
 end

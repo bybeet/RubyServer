@@ -32,7 +32,6 @@ get "/codingprojects" do
 	@span = 4
 	#Counter to start new row when row is maxed out.
 	@i = 0
-	@projects = Project.all
 	erb :codingprojects
 end
 

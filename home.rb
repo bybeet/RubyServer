@@ -6,6 +6,10 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/public/projects.db")
 
 set :port, 8088
 
+before do
+	@projects = Project.all(:order => [:title])
+end
+
 get "/" do
 	erb :home
 end
@@ -33,7 +37,7 @@ get "/codingprojects" do
 end
 
 get "/project*" do
-	@projects = Project.first(:name_id => request.path_info.split('_')[1])
+	@project = Project.first(:name_id => request.path_info.split('_')[1])
 	erb :project
 end
 
